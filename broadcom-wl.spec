@@ -4,7 +4,7 @@
 
 Summary:	Proprietary driver for Broadcom wireless adapters
 Name:		broadcom-wl
-Version:	5.10.27.11
+Version:	5.10.27.12
 Release:	%{mkrel 1}
 Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86-32_%{over}.tar.gz
 Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86-64_%{over}.tar.gz
