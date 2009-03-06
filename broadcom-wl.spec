@@ -4,10 +4,11 @@
 
 Summary:	Proprietary driver for Broadcom wireless adapters
 Name:		broadcom-wl
-Version:	5.10.27.12
+Version:	5.10.79.10
 Release:	%{mkrel 1}
-Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86-32_%{over}.tar.gz
-Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86-64_%{over}.tar.gz
+Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86_32-v%{over}.tar.gz
+Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86_64-v%{over}.tar.gz
+Patch0:		broadcom-wl-2.6.29.patch
 # Blob is under a custom license (see LICENSE.txt), everything else
 # is GPLv2 - AdamW 2008/12
 License:	Freeware and GPLv2 with exception
@@ -39,6 +40,7 @@ requires manual installation of firmware, or ndiswrapper.
 %else
 %setup -q -T -c -a0 %{oname}
 %endif
+%patch0 -p1
 
 %build
 
