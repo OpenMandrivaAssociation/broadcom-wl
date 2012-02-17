@@ -3,18 +3,19 @@
 
 Summary:	Proprietary driver for Broadcom wireless adapters
 Name:		broadcom-wl
-Version:	5.100.82.38
-Release:	%{mkrel 1}
-Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86_32-v%{version}.tar.gz
-Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}-x86_64-v%{version}.tar.gz
+Version:	5.100.82.112
+Release:	1
+Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}-portsrc_x86_32-v5_100_82_112.tar.gz
+Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}_x86_32-v5_100_82_112.tar.gz
 Source2:	blacklist-brcm80211.conf
-Patch0:		broadcom-wl-2.6.37-buildfix.patch
+Patch0:		broadcom-sta-5.100.82.111-linux-3.0.patch
+Patch1:		broadcom-sta-5.100.82.112-linux-3.2.patch
+Patch2:		broadcom-sta-5.100.82.112-linux-2.6.39.patch
 # Blob is under a custom license (see LICENSE.txt), everything else
 # is GPLv2 - AdamW 2008/12
 License:	Freeware and GPLv2 with exception
 Group:		System/Kernel and hardware
 URL:		http://www.broadcom.com/support/802.11/linux_sta.php
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This package contains the proprietary driver for Broadcom wireless
@@ -41,12 +42,12 @@ requires manual installation of firmware, or ndiswrapper.
 %setup -q -T -c -a0 %{oname}
 %endif
 %patch0 -p1
+%patch1 -p1
+%patch2 -p0
 
 %build
 
 %install
-rm -rf %{buildroot}
-
 # add blacklist for in-kernel module
 install -m755 -d %{buildroot}/etc/modprobe.d/
 install -m644 %{SOURCE2} %{buildroot}/etc/modprobe.d
@@ -75,11 +76,7 @@ set -x
 set -x
 /usr/sbin/dkms --rpm_safe_upgrade remove -m %{name} -v %{version}-%{release} --all || :
 
-%clean
-rm -rf %{buildroot}
-
 %files -n dkms-%{name}
-%defattr(-,root,root)
 %doc lib/LICENSE.txt
 %config(noreplace) /etc/modprobe.d/blacklist-brcm80211.conf
 %dir %{_usr}/src/%{name}-%{version}-%{release}
