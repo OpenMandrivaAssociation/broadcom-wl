@@ -4,7 +4,7 @@
 Summary:	Proprietary driver for Broadcom wireless adapters
 Name:		broadcom-wl
 Version:	5.100.82.112
-Release:	1
+Release:	2
 Source0:	http://www.broadcom.com/docs/linux_sta/%{oname}_x86_32-v5_100_82_112.tar.gz
 Source1:	http://www.broadcom.com/docs/linux_sta/%{oname}_x86_64-v5_100_82_112.tar.gz
 Source2:	blacklist-brcm80211.conf
