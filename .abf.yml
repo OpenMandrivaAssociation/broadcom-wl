@@ -1,4 +1,4 @@
 sources:
-  "blacklist-brcm80211.conf:"	53560a4d5e44a4689c1d84a18eb6683c45e770e9
+  "blacklist-brcm80211.conf:" 53560a4d5e44a4689c1d84a18eb6683c45e770e9
   "hybrid-portsrc_x86_32-v5_100_82_112.tar.gz:"	01aa32f9e85621253a3f15cf4361bb80d41da3e8
   "hybrid-portsrc_x86_64-v5_100_82_112.tar.gz:"	5bd78c20324e6a4aa9f3fafdc6f0155e884d5131
