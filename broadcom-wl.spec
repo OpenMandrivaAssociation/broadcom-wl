@@ -15,7 +15,7 @@ Patch2:		broadcom-sta-5.100.82.112-linux-2.6.39.patch
 # is GPLv2 - AdamW 2008/12
 License:	Freeware and GPLv2 with exception
 Group:		System/Kernel and hardware
-URL:		http://www.broadcom.com/support/802.11/linux_sta.php
+URL:		https://www.broadcom.com/support/802.11/linux_sta.php
 
 %description
 This package contains the proprietary driver for Broadcom wireless
